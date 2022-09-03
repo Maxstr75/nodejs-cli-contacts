@@ -1,10 +1,4 @@
-function getCurrentContact() {
-  return Data.Now();
-}
-
-module.exports = {
-  getCurrentContact,
-};
+const fs = require("fs").promises;
 
 /*
  * Раскомментируй и запиши значение
