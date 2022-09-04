@@ -1,29 +1,20 @@
 {
   "name": "nodejs-cli-contacts",
   "version": "1.0.0",
+  "description": "homework",
   "main": "index.js",
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "start:dev": "nodemon index"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Maxstr75/nodejs-cli-contacts.git"
-  },
   "author": "Maksim Stribaylo",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Maxstr75/nodejs-cli-contacts/issues"
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   },
-  "homepage": "https://github.com/Maxstr75/nodejs-cli-contacts#readme",
-  "description": "homework",
   "dependencies": {
     "commander": "^9.4.0",
-    "common-js": "^0.3.8",
     "nanoid": "^4.0.0"
   }
 }
