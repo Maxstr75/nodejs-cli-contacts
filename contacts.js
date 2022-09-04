@@ -5,6 +5,7 @@ const { customAlphabet } = require("nanoid");
 const newId = customAlphabet("1234567890", 10);
 // newId = nanoid();
 
+// Полный путь к папке с текущим модулем/папка/файл
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 // TODO: задокументировать каждую функцию
