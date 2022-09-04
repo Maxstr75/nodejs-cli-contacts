@@ -3,6 +3,9 @@ const path = require("path");
 
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
+const { customAlphabet } = require("nanoid");
+const nanoid = customAlphabet("1234567890abcdef", 10);
+newId = nanoid(); //=> "4f90d13a42"
 // TODO: задокументировать каждую функцию
 
 // Получаем и выводим полный список контактов в таблицу
@@ -42,14 +45,31 @@ async function removeContact(contactId) {
     );
     await fs.writeFile(contactsPath, JSON.stringify(filterContacts, null, 2));
     console.table(filterContacts);
+    console.log("\x1b[32m Successfully deleted");
   } catch (error) {
     console.error(error.message);
   }
 }
 
 // Добавляем контакт
-function addContact(name, email, phone) {
-  // ...твой код
+async function addContact(name, email, phone) {
+  const newContact = {
+    id: Number(newId()),
+    name,
+    email,
+    phone,
+  };
+  try {
+    const data = await fs.readFile(contactsPath, "utf8");
+    const parsedContacts = jSON.parse(data);
+
+    const contacts = [...parsedContacts, newContact];
+    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
+    console.table(contacts);
+    console.log("\x1b[32m Successfully added");
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 //Экспортируем созданные функции

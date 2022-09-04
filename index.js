@@ -1,6 +1,6 @@
 const {
   listContacts,
   getContactById,
-  // removeContact,
-  // addContact,
+  removeContact,
+  addContact,
 } = require("./contacts");
