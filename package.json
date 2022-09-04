@@ -23,6 +23,7 @@
   "description": "homework",
   "dependencies": {
     "commander": "^9.4.0",
+    "common-js": "^0.3.8",
     "nanoid": "^4.0.0"
   }
 }
