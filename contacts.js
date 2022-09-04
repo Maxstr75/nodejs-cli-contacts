@@ -32,8 +32,19 @@ async function getContactById(contactId) {
 }
 
 // Удаляем контакт
-function removeContact(contactId) {
-  // ...твой код
+async function removeContact(contactId) {
+  try {
+    const data = await fs.readFile(contactsPath, "uyf8");
+    const contacts = JSON.parse(data);
+
+    const filterContacts = contacts.filter(
+      (contact) => contact.id !== contactId
+    );
+    await fs.writeFile(contactsPath, JSON.stringify(filterContacts, null, 2));
+    console.table(filterContacts);
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 // Добавляем контакт
