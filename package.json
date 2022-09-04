@@ -20,5 +20,8 @@
     "url": "https://github.com/Maxstr75/nodejs-cli-contacts/issues"
   },
   "homepage": "https://github.com/Maxstr75/nodejs-cli-contacts#readme",
-  "description": "homework"
+  "description": "homework",
+  "dependencies": {
+    "nanoid": "^4.0.0"
+  }
 }
