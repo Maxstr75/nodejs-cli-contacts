@@ -1,11 +1,12 @@
 const fs = require("fs").promises;
 const path = require("path");
 
+const { customAlphabet } = require("nanoid");
+const newId = customAlphabet("1234567890", 10);
+// newId = nanoid();
+
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
-const { customAlphabet } = require("nanoid");
-const nanoid = customAlphabet("1234567890abcdef", 10);
-newId = nanoid(); //=> "4f90d13a42"
 // TODO: задокументировать каждую функцию
 
 // Получаем и выводим полный список контактов в таблицу
