@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const contactsPath = path.resolve("./db/contacts.json");
+const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 // TODO: задокументировать каждую функцию
 
@@ -17,12 +17,14 @@ async function listContacts() {
 }
 
 // Получаем контакт по ИД
-function getContactById(contactId) {
+async function getContactById(contactId) {
   try {
     const data = await fs.readFile(contactsPath, "uyf8");
     const contacts = JSON.parse(data);
 
-    const contact = contacts.filter((contact) => contact.id === Number(contactId));
+    const contact = contacts.filter(
+      (contact) => contact.id === Number(contactId)
+    );
     return console.table(contact);
   } catch (error) {
     console.error(error.message);
