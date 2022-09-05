@@ -1,8 +1,8 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const { customAlphabet } = require("nanoid");
-const newId = customAlphabet("1234567890", 10);
+// const { customAlphabet } = require("nanoid");
+// const newId = customAlphabet("1234567890", 10);
 // newId = nanoid();
 
 // Полный путь к папке с текущим модулем/папка/файл
@@ -24,12 +24,13 @@ async function listContacts() {
 // Получаем контакт по ИД
 async function getContactById(contactId) {
   try {
-    const data = await fs.readFile(contactsPath, "uyf8");
+    const data = await fs.readFile(contactsPath, "utf8");
     const contacts = JSON.parse(data);
 
     const contact = contacts.filter(
       (contact) => contact.id === Number(contactId)
     );
+
     return console.table(contact);
   } catch (error) {
     console.error(error.message);
@@ -39,7 +40,7 @@ async function getContactById(contactId) {
 // Удаляем контакт
 async function removeContact(contactId) {
   try {
-    const data = await fs.readFile(contactsPath, "uyf8");
+    const data = await fs.readFile(contactsPath, "utf8");
     const contacts = JSON.parse(data);
 
     const filterContacts = contacts.filter(
@@ -56,14 +57,14 @@ async function removeContact(contactId) {
 // Добавляем контакт
 async function addContact(name, email, phone) {
   const newContact = {
-    id: Number(newId()),
+    id: Number(),
     name,
     email,
     phone,
   };
   try {
     const data = await fs.readFile(contactsPath, "utf8");
-    const parsedContacts = jSON.parse(data);
+    const parsedContacts = JSON.parse(data);
 
     const contacts = [...parsedContacts, newContact];
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
